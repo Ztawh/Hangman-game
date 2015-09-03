@@ -54,25 +54,11 @@ until tries_left == -1
 	letter_in = gets.chomp.downcase
 	puts "\n"
 
-	#This i my attempt for a word check. It doesn't work!
-	#But if you want you can try to uncomment it and see what happens.
-
-	#unless letter_in.to_i.is_a?(Integer) == 0
-	#	puts "Please enter a letter!!"
-	#	letter_in = gets.chomp.downcase
-	#	puts "\n"
-	#end
-
-	#Don't really know what I'm doing here.. But It's another attempt
-	#for a word check. Really doesn't work!
-	
-	#begin
-	#	letter_in = Integer(str)
-	#rescue ArgumentError
-	#	puts "Please enter a letter!"
-	#	letter_in = gets.chomp.downcase
-	#	puts "\n"
-	#end
+	unless letter_in.to_i == 0
+		puts "Please enter a letter!!"
+		letter_in = gets.chomp.downcase
+		puts "\n"
+	end
 
 	if alphabet.include?(letter_in) && word_arr.include?(letter_in) == false
 		tries_left -= 1
