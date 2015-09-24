@@ -25,7 +25,7 @@ alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n"
 
 tries_left = 8
 
-puts "Available words: "
+puts "Available letters: "
 alphabet.each do |element|
 	print element + " "
 end
@@ -39,15 +39,10 @@ puts "\n \n"
 
 guessed = []
 
-until tries_left == -1
+loop do
 
 	if letter_in_arr.sort == word_arr.sort
 		win()
-		break
-	end
-
-	if tries_left == 0
-		fail()
 		break
 	end
 
@@ -71,11 +66,16 @@ until tries_left == -1
 
 	puts "\n"
 
+	if tries_left == 0
+		fail()
+		break
+	end
+
 	guessed << letter_in
 		
 	if alphabet.include?(letter_in)
 		alphabet.delete(letter_in)
-		puts "Available words: "
+		puts "Available letters: "
 		alphabet.each do |element|
 			print element + " "
 		end
